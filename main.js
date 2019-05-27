@@ -49,11 +49,12 @@ var USAGE           = "Error missing args. \n" +
     "--justbuild : (optional) just builds the project, without running the tests \n" +
     "--logMins : (optional) Windows only - specifies number of minutes to get logs\n" +
     "--outputDir : (optional) path to save Junit results file & Device logs\n" +
+    "--projectDir : (optional) path to the project\n" +
     "--sauceAppiumVersion : (optional) Appium version to use when running on Saucelabs. For example, \"1.5.3\"\n" +
     "--sauceDeviceName : (optional) Name of the SauceLabs emulator/browser. For example, \"iPhone Simulator\" or \"firefox\"\n" +
     "--sauceKey : (optional) Saucelabs access key\n" +
     "--saucePlatformVersion : (optional) Version of the emulator OS or version of the browser. For example, \"9.3\" or \"54.0\"\n" +
-    "--sauceTunnelId : (optional) Tunnel identifier to use. Only usable if you have Sauce Connect up\n" + 
+    "--sauceTunnelId : (optional) Tunnel identifier to use. Only usable if you have Sauce Connect up\n" +
     "--sauceUser : (optional) Saucelabs username\n" +
     "--shouldUseSauce : (optional) run tests on Sauce Labs\n" +
     "--skipAppiumTests : (optional) Do not run Appium tests\n" +
@@ -93,6 +94,10 @@ if (argv.version) {
 
     if (argv.outputDir) {
         paramedicConfig.setOutputDir(argv.outputDir);
+    }
+
+    if (argv.projectDir) {
+        paramedicConfig.setProjectDir(argv.projectDir);
     }
 
     if (argv.logMins) {
