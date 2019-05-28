@@ -40,6 +40,7 @@ var USAGE           = "Error missing args. \n" +
                     "\tbe installed and tested together.\n" +
     "\n" +
     "--args: (optional) add command line args to the \"cordova build\" and \"cordov run\" commands \n" +
+    "--buildId: (optional) Build identifier to show in Saucelabs dashboard\n" +
     "--buildName : (optional) Build name to show in Saucelabs dashboard\n" +
     "--ci : (optional) Skip tests that require user interaction\n" +
     "--cleanUpAfterRun : (optional) cleans up the application after the run\n" +
@@ -149,6 +150,10 @@ if (argv.version) {
 
     if (argv.sauceTunnelId) {
         paramedicConfig.setSauceTunnelId(argv.sauceTunnelId);
+    }
+
+    if (argv.buildId) {
+        paramedicConfig.setSauceBuildId(argv.buildId);
     }
 
     if (argv.useTunnel) {
